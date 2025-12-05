@@ -11,6 +11,7 @@ from api.models import db
 from api.routes import api
 from api.admin import setup_admin
 from api.commands import setup_commands
+# from flask_cors import CORS
 
 # from models import Person
 
@@ -19,6 +20,10 @@ static_file_dir = os.path.join(os.path.dirname(
     os.path.realpath(__file__)), '../dist/')
 app = Flask(__name__)
 app.url_map.strict_slashes = False
+
+# CORS(app, resources={r"/api/*": {"origins": [
+#     "https://silver-invention-95p766g94gwfpw6-3000.app.github.dev"
+# ]}})
 
 # database condiguration
 db_url = os.getenv("DATABASE_URL")
